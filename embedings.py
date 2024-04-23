@@ -132,9 +132,9 @@ def main():
 
     if user_query:  # 사용자가 검색어를 입력한 경우
     # 세션 상태에서 'combined_documents'를 사용하여 검색을 수행합니다.
-        response = rag_chain.invoke(user_query)
+        response = rag_chain.stream(user_query)
         st.write("검색 결과:")
-        st.markdown(response)  # 검색 결과를 화면에 출력합니다.
+        st.markdown(st.write_stream(response))
 
 if __name__ == "__main__":
     main()
